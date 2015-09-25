@@ -1,0 +1,58 @@
+- name: Set hostname
+  shell: sudo {{ item }}
+  sudo: true
+  with_items:
+    - scutil --set ComputerName "{{ osx_hostname }}"
+    - scutil --set HostName "{{ osx_hostname }}"
+    - scutil --set LocalHostName "{{ osx_hostname }}"
+    - defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "{{ osx_hostname }}"
+
+# - name: Disable Notification Center and remove the menu bar icon
+#   shell: launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+
+- name: Set the timezone (see `systemsetup -listtimezones` for other values)
+  shell: systemsetup -settimezone "Europe/Brussels" > /dev/null
+
+- name: Show the ~/Library folder
+  shell: chflags nohidden ~/Library
+
+- name: Disable local Time Machine backups
+  shell: hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+- name: Executing defaults commands, tweaking osx
+  command: "{{ item }}"
+  with_items: osx_defaults
+  sudo_user: "{{ user }}"
+  ignore_errors: yes
+
+- name: Executing defaults commands as sudo, tweaking osx
+  command: "sudo {{ item }}"
+  with_items: osx_sudo_defaults
+  sudo: true
+  ignore_errors: yes
+
+
+- name: Set Lock screen message
+  command: sudo defaults write om.apple.loginwindow LoginwindowText "{{ osx_lock_screen_text }}"
+
+
+# - name: Setup desktop icons style
+#   shell: sudo {{ item }}
+#   sudo: true
+#   with_items: osx_desktop_settings
+
+- name: Kill all apps and refresh
+  shell: killall "{{ item }}" > /dev/null 2>&1
+  ignore_errors: yes
+  with_items:
+    - Address Book
+    - Calendar
+    - Contacts
+    - Dashboard
+    - Dock
+    - Finder
+    - Mail
+    - Safari
+    - SystemUIServer
+    - iCal
+    - iTunes

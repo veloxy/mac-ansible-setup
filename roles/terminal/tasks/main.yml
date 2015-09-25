@@ -1,0 +1,14 @@
+---
+
+- name: Copy terminal settings file
+  copy: src={{ terminal_theme }}.terminal dest=/tmp/{{ terminal_theme }}.terminal
+
+- name: Set default terminal
+  command: open /tmp/{{ terminal_theme }}.terminal
+  ignore_errors: yes
+
+- name: 'Terminal: Set startup window'
+  shell: 'defaults write com.apple.Terminal "Startup Window Settings" -string {{ terminal_theme }}'
+
+- name: 'Terminal: Set default window'
+  shell: 'defaults write com.apple.Terminal "Default Window Settings" -string {{ terminal_theme }}'
