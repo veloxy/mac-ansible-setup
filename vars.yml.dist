@@ -16,7 +16,6 @@ homebrew_apps:
     - git-flow-avh
     - docker
     - docker-compose
-    - composer
     - autoconf
     - curl
     - chromedriver
