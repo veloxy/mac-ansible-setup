@@ -20,7 +20,8 @@ homebrew_apps:
     - curl
     - chromedriver
     - selenium-server-standalone
-    - php-cs-fixer
+    - php56
+    - homebrew/php/php-cs-fixer
     - php-code-sniffer
     - node
 
