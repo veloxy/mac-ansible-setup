@@ -9,6 +9,7 @@ homebrew_taps:
   - homebrew/php
   - homebrew/versions
   - caskroom/versions
+  - homebrew/homebrew-php
 
 cask_apps: []
 
