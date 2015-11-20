@@ -10,6 +10,7 @@ homebrew_taps:
   - homebrew/versions
   - caskroom/versions
 
-cask_apps: []
+cask_apps: 
+  - phpstorm
 
 alfred_cask_integration: true
