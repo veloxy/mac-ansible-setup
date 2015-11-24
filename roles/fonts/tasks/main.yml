@@ -1,0 +1,34 @@
+---
+- stat: path=/Users/{{ user }}/Library/Fonts/Sauce\ Code\ Powerline\ Black.otf
+  register: sourceCodePowerline
+
+- name: Downloading
+  git: repo=git@github.com:powerline/fonts.git
+       dest=/tmp/fonts
+  when: sourceCodePowerline.stat.exists == False
+
+- get_url: url=https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.zip dest=/tmp/scp.zip
+  when: sourceCodePowerline.stat.exists == False
+
+- command: find /tmp/fonts -mindepth 1 ! -name 'Source*' -type d -exec rm -rf '{}' \;
+  ignore_errors: yes
+  when: sourceCodePowerline.stat.exists == False
+
+- file: path=/tmp/scp state=directory
+  when: sourceCodePowerline.stat.exists == False
+- name: Installing Source Code Pro
+  unarchive: src=/tmp/scp.zip dest=/tmp/scp copy=no
+  when: sourceCodePowerline.stat.exists == False
+- copy: src=/tmp/scp/source-code-pro-2.010R-ro-1.030R-it/OTF dest=/tmp/fonts/sourceCodePro
+  when: sourceCodePowerline.stat.exists == False
+
+- name: Installing Source Code Powerline
+  script: /tmp/fonts/install.sh
+  when: sourceCodePowerline.stat.exists == False
+
+- name: Cleanup
+  file: path=/tmp/fonts state=absent
+
+- file: path=/tmp/scp state=absent
+- file: path=/tmp/scp.zip state=absent
+
