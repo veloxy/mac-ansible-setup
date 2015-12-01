@@ -3,7 +3,7 @@ account_picture: files/Picture.jpg
 dotfiles_dir: '/Users/{{ user }}/'
 gitconfig_name: Kevin Vandenborne
 gitconfig_email: kevin.vandenborne@gmail.com
-osx_lock_screen_text: Found Me? Stole Me? Return me Back!\n ..
+osx_lock_screen_text: When found, return to Hogeweg 27, 3800 Sint-Truiden, Belgium!\n ..
 osx_dock_tile_px: 42
 osx_hostname: Hestia
 terminal_theme: Flat
@@ -22,6 +22,8 @@ homebrew_apps:
   - homebrew/php/php-cs-fixer
   - php-code-sniffer
   - node
+  - dnsmasq
+  - michaeldfallen/formula/git-radar
 
 cask_apps:
   - sublime-text3
@@ -44,8 +46,10 @@ cask_apps:
   - iterm2
   - steam
   - shiftit
+  - phpstorm
   - whatpulse
-  - gitter
+  - chromecast
+  - sketch
 
 vagrant_plugins:
   - vagrant-vbguest
