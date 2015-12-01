@@ -45,6 +45,7 @@ cask_apps:
   - steam
   - shiftit
   - whatpulse
+  - gitter
 
 vagrant_plugins:
   - vagrant-vbguest
