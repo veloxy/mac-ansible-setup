@@ -49,7 +49,7 @@ cask_apps:
   - phpstorm
   - whatpulse
   - chromecast
-  - sketch
+  - fitbit-connect
 
 vagrant_plugins:
   - vagrant-vbguest
