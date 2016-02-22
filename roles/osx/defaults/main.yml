@@ -425,10 +425,13 @@ osx_defaults:
     # Removing useless icons from Safari's bookmarks bar
     - defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
-    # enable tap to click
+    # Enable tap to click
     - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
     - defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
     - defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    
+    # Prevent OSX from opening photos app when iphone connects
+    defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
     # disable spotlight indexing
     - |
