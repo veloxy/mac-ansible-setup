@@ -32,7 +32,6 @@ homebrew_apps:
 cask_apps:
   - sublime-text
   - vagrant
-  - vagrant-manager
   - virtualbox
   - google-chrome
   - firefox
