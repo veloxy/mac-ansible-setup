@@ -429,11 +429,11 @@ osx_defaults:
     - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
     - defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
     - defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-    
-    # Prevent OSX from opening photos app when iphone connects
-    defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
-    # disable spotlight indexing
+    # Prevent OSX from opening photos app when iphone connects
+    - defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
+    # Disable spotlight indexing
     - |
         defaults write com.apple.spotlight orderedItems -array \
         '{"enabled" = 0;"name" = "APPLICATIONS";}' \
@@ -470,3 +470,6 @@ osx_defaults:
     - defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
     # Show status bar in Safari
     - defaults write com.apple.Safari ShowStatusBar -boolean true
+
+    # Dark style menu bar, reboot required.
+    - defaults write NSGlobalDomain AppleInterfaceStyle Dark

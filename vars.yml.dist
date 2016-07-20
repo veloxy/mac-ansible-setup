@@ -8,6 +8,9 @@ osx_dock_tile_px: 42
 osx_hostname: Hestia
 terminal_theme: Flat
 
+homebrew_taps:
+  - caskroom/versions
+
 homebrew_apps:
   - git
   - brew-cask
@@ -24,9 +27,10 @@ homebrew_apps:
   - node
   - dnsmasq
   - michaeldfallen/formula/git-radar
+  - diff-so-fancy
 
 cask_apps:
-  - sublime-text3
+  - sublime-text
   - vagrant
   - vagrant-manager
   - virtualbox
@@ -36,20 +40,20 @@ cask_apps:
   - spotify
   - slack
   - 1password
-  - vlc
   - alfred
   - java7
-  - dropbox-experimental
-  - google-drive
   - garmin-express
-  - osxfuse
   - iterm2
   - steam
   - shiftit
   - phpstorm
   - whatpulse
-  - chromecast
-  - fitbit-connect
+  - mkchromecast
+  - osxfuse-beta
+  - whatsapp
+  - gpgtools
+  - nylas-n1
+  - transmit
 
 vagrant_plugins:
   - vagrant-vbguest

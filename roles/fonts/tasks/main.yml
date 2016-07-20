@@ -1,5 +1,5 @@
 ---
-- stat: path=/Users/{{ user }}/Library/Fonts/Sauce\ Code\ Powerline\ Black.otf
+- stat: path="/Users/{{ user }}/Library/Fonts/Sauce\ Code\ Powerline\ Black.otf"
   register: sourceCodePowerline
 
 - name: Downloading

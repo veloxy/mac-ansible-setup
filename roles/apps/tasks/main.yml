@@ -12,6 +12,3 @@
   shell: brew cask install {{ item }} --appdir=/Applications
   with_items: cask_apps
 
-- name: Link Alfred and Cask
-  shell: brew cask alfred link
-  when: alfred_cask_integration == true
