@@ -30,6 +30,10 @@ homebrew_apps:
   - michaeldfallen/formula/git-radar
   - diff-so-fancy
 
+gems:
+  - bundler
+  - sass
+
 cask_apps:
   - sublime-text
   - vagrant

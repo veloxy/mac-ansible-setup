@@ -12,3 +12,8 @@
   shell: brew cask install {{ item }} --appdir=/Applications
   with_items: cask_apps
 
+- name: Install gems
+  shell: gem install {{ item }}
+  with_items: gems
+  become: true
+
