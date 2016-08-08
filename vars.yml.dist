@@ -21,7 +21,8 @@ homebrew_apps:
   - docker-compose
   - autoconf
   - curl
-  - php56
+  - php70
+  - composer
   - homebrew/php/php-cs-fixer
   - php-code-sniffer
   - node
