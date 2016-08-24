@@ -58,6 +58,7 @@ cask_apps:
   - gpgtools
   - nylas-n1
   - transmit
+  - sonos
 
 vagrant_plugins:
   - vagrant-vbguest
