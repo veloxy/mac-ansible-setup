@@ -2,53 +2,48 @@
 
 My own OS X setup, shamelessly copied from [Joeri](https://github.com/jverdeyen), modified to my own needs.
 
-## Step 1: Install Xcode
-Grab a cup of coffee, this will take while.
+## Requirements
 
-```
-xcode-select --install
-```
+- Xcode `xcode-select --install`
+- Homebrew `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && export PATH=/usr/local/bin:$PATH`
+- Git `brew install ansible git`
 
-## Step 2: Install Homebrew
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+## Installation
 
-## Step 3: Install Ansible and Git
-```
-export PATH=/usr/local/bin:$PATH
-brew install ansible git
-```
+Before you (can) run the playbooks, you should (need) to configure them.
 
-## Step 4: Clone mac-setup repository
-```
-git clone [url-of-this-or-your-repo]
-cd mac-ansible-setup
-```
+### Configuration
 
-## Step 5: vars.yml
-Duplicate `vars.yml.dist` to `vars.yml` and adjust to your needs.
+Start by duplicating `vars.yml.dist` to `vars.yml` and adjust it to your own needs.
+
 ```
 cp vars.yml.dist vars.yml
 ```
 
-## Step 6: Run Ansible playbook
+### Running playbooks
+
+Run all playbooks:
+
 ```
 ansible-playbook setup.yml --ask-sudo-pass
 ```
 
 Or run specific tagged roles:
+
 ```
 ansible-playbook setup.yml --tags osx --ask-sudo-pass
 ```
 
-## Step 7: Run mackup restore
+### Application Settings
 
-**Wait until Dropbox is done with syncing**
+Application settings are synced with dropbox using [Mackup](https://github.com/lra/mackup).
+Once the playbooks finished running, wait until dropbox is synced and run `mackup restore`.
 
-```
-mackup restore
-```
+## Issues
+
+- `ERROR:  While executing gem ... (Gem::FilePermissionError)\n    You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory.`
+
+  Change owner of the gem folder `sudo chown -R user:group /Library/Ruby/Gems/2.0.0` ([source](http://stackoverflow.com/a/11644182/705529))
 
 # Inspired by
 * [osx-for-hackers.sh](https://gist.github.com/brandonb927/3195465)
