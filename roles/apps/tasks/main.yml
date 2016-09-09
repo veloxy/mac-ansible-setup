@@ -2,18 +2,22 @@
 
 - name: Homebrew taps
   homebrew_tap: tap={{ item }} state=present
-  with_items: homebrew_taps
+  with_items: "{{ homebrew_taps }}"
 
 - name: Install brew apps
   homebrew: name={{ item }} state=present
-  with_items: homebrew_apps
+  with_items: "{{ homebrew_apps }}"
 
 - name: Install Cask apps
   shell: brew cask install {{ item }} --appdir=/Applications
-  with_items: cask_apps
+  with_items: "{{ cask_apps }}"
 
 - name: Install gems
   shell: gem install {{ item }}
-  with_items: gems
+  with_items: "{{ gems }}"
+
+- name: Easy Install
+  shell: sudo easy_install {{ item }}
+  with_items: "{{ easy_install }}"
   become: true
 
