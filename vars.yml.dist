@@ -13,7 +13,6 @@ homebrew_taps:
 
 homebrew_apps:
   - git
-  - brew-cask
   - htop-osx
   - ssh-copy-id
   - git-flow-avh
@@ -21,18 +20,12 @@ homebrew_apps:
   - docker-compose
   - autoconf
   - curl
-  - php70
-  - composer
-  - homebrew/php/php-cs-fixer
-  - php-code-sniffer
   - node
   - dnsmasq
   - michaeldfallen/formula/git-radar
   - diff-so-fancy
 
-gems:
-  - bundler
-  - sass
+#gems:
 
 easy_install:
   - pip
@@ -48,20 +41,16 @@ cask_apps:
   - slack
   - 1password
   - alfred
-  - java7
-  - garmin-express
   - iterm2
   - steam
   - shiftit
-  - phpstorm
+  - jetbrains-toolbox
   - whatpulse
-  - mkchromecast
-  - osxfuse-beta
   - whatsapp
   - gpgtools
-  - nylas-n1
   - transmit
-  - sonos
+  - dropbox
+  - beardedspice
 
 vagrant_plugins:
   - vagrant-vbguest
